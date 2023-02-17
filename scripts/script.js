@@ -1,13 +1,23 @@
 let page = document.querySelector('.page');
-let paragraph = document.querySelector('p');
-page.classList.add('dark-theme');
 let themeButton = document.querySelector('.theme-button');
-let myHead = document.querySelector('h1');
+
+page.classList.add('dark-theme');
 themeButton.onclick = function () {
   page.classList.toggle('dark-theme');
   page.classList.toggle('light-theme');
-//  myHead.textContent = 'CHEBUREK';
-  console.log("Кнопка нажата");
 }
-//встроенные функции
-//alert(message), prompt(message, default) и confirm(question)
+
+console.log("this is my sandbox");
+////////////////////////////////////////////////////////////////////////SANDBOX/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+fetch('http://example.com/movies.json', {
+  method: 'GET',
+  credentials: 'include',
+  mode: 'cors',
+})
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  });
