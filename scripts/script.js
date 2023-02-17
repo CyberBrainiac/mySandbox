@@ -10,12 +10,13 @@ themeButton.onclick = function () {
 console.log("this is my sandbox");
 ////////////////////////////////////////////////////////////////////////SANDBOX/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-fetch('http://example.com/movies.json', {
+fetch('https://coinmarketcap.com/', {
   method: 'GET',
   credentials: 'include',
   mode: 'cors',
 })
   .then((response) => {
+    console.log(response);
     return response.json();
   })
   .then((data) => {
