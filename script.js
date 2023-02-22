@@ -41,4 +41,6 @@ async function showAvatar() {
 }
 
 showAvatar();
-let a = 1;
+
+
+let a = "commit";
