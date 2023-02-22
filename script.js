@@ -41,3 +41,4 @@ async function showAvatar() {
 }
 
 showAvatar();
+let a
