@@ -41,4 +41,4 @@ async function showAvatar() {
 }
 
 showAvatar();
-let a
+let a = 1;
