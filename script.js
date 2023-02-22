@@ -19,11 +19,11 @@
 async function showAvatar() {
 
   // запрашиваем JSON с данными пользователя
-  let response = await fetch('/article/promise-chaining/user.json');
-  let user = await response.json();
+  // let response = await fetch('/article/promise-chaining/user.json');
+  // let user = await response.json();
 
   // запрашиваем информацию об этом пользователе из github
-  let githubResponse = await fetch(`https://api.github.com/users/${user.name}`);
+  let githubResponse = await fetch(`https://api.github.com/users/PoziTronAr`);
   let githubUser = await githubResponse.json();
 
   // отображаем аватар пользователя
