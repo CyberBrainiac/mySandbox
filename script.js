@@ -55,7 +55,7 @@ async function loadJson(url) {
 // loadJson('no-such-user.json').catch(console.log); // Error: 404
 
 
-
+let exempleHTTPError;
 class HttpError extends Error {
   constructor(response) {
     super(`${response.status} for ${response.url}`);
@@ -88,6 +88,7 @@ function demoGithubUser() {
     .catch(err => {
       if (err instanceof HttpError && err.response.status == 404) {
         alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
+        exempleHTTPError = err;
         return demoGithubUser();
       } else {
         throw err;
