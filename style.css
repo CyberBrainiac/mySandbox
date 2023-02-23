@@ -6,6 +6,10 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.page {
+  background-color: antiquewhite;
+}
+
 button {
   z-index: 10;
   background-color: darkviolet;
