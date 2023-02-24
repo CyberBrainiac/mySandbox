@@ -55,7 +55,6 @@ async function loadJson(url) {
 // loadJson('no-such-user.json').catch(console.log); // Error: 404
 
 
-let exempleHTTPError;
 class HttpError extends Error {
   constructor(response) {
     super(`${response.status} for ${response.url}`);
@@ -64,36 +63,32 @@ class HttpError extends Error {
   }
 }
 
-function loadJson(url) {
-  return fetch(url)
-    .then(response => {
-      console.log(response);
-      if (response.status == 200) {
-        return response.json();
-      } else {
-        throw new HttpError(response);
-      }
-    })
+async function loadJson(url) {
+  let response = await fetch(url);
+
+  if (response.status == 200) {
+    return response.json();
+  } else {
+    throw new HttpError(response);
+  }
 }
 
 // Запрашивать логин, пока github не вернёт существующего пользователя.
-function demoGithubUser() {
-  let name = prompt("Введите логин?", "iliakan");
+async function demoGithubUser() {
+  let name;
+  let user;
 
-  return loadJson(`https://api.github.com/users/${name}`)
-    .then(user => {
-      alert(`Полное имя: ${user.name}.`);
-      return user;
-    })
-    .catch(err => {
-      if (err instanceof HttpError && err.response.status == 404) {
-        alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
-        exempleHTTPError = err;
-        return demoGithubUser();
-      } else {
-        throw err;
-      }
-    });
+  do {
+    name = prompt("Введите логин?", "iliakan");
+    user = await loadJson(`https://api.github.com/users/${name}`);
+  } while (user instanceof HttpError && user.response.status == 404)
+
+  if(user instanceof Error) {
+    throw user;
+  }
+  
+  alert(`Полное имя: ${user.name}.`);
+  return user;
 }
 
 demoGithubUser();
