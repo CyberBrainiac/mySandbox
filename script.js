@@ -16,7 +16,7 @@
 
 
 async function getData() {
-  const response = await fetch('https://example.com/data');
+  const response = await fetch('https://coinmarketcap.com/api/');
   const data = await response.json();
   return data;
 }
