@@ -15,80 +15,12 @@
 //   });
 
 
-
-async function showAvatar() {
-
-  // запрашиваем JSON с данными пользователя
-  // let response = await fetch('/article/promise-chaining/user.json');
-  // let user = await response.json();
-
-  // запрашиваем информацию об этом пользователе из github
-  let githubResponse = await fetch(`https://api.github.com/users/PoziTronAr`);
-  let githubUser = await githubResponse.json();
-
-  // отображаем аватар пользователя
-  let img = document.createElement('img');
-  img.src = githubUser.avatar_url;
-  img.className = "promise-avatar-example";
-  document.body.append(img);
-
-  // ждём 3 секунды и затем скрываем аватар
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-  img.remove();
-
-  return githubUser;
+async function getData() {
+  const response = await fetch('https://example.com/data');
+  const data = await response.json;
+  return data;
 }
 
-// showAvatar();
-
-async function loadJson(url) {
-  const response = await fetch(url)
-  
-  if (response.status == 200) {
-    return response.json();
-  } else {
-    throw new Error(response.status);
-  }
-}
-
-// loadJson('no-such-user.json').catch(console.log); // Error: 404
-
-
-class HttpError extends Error {
-  constructor(response) {
-    super(`${response.status} for ${response.url}`);
-    this.name = 'HttpError';
-    this.response = response;
-  }
-}
-
-async function loadJson(url) {
-  let response = await fetch(url);
-
-  if (response.status == 200) {
-    return response.json();
-  } else {
-    throw new HttpError(response);
-  }
-}
-
-// Запрашивать логин, пока github не вернёт существующего пользователя.
-async function demoGithubUser() {
-  let name;
-  let user;
-
-  do {
-    name = prompt("Введите логин?", "iliakan");
-    user = await loadJson(`https://api.github.com/users/${name}`);
-  } while (user instanceof HttpError && user.response.status == 404)
-
-  if(user instanceof Error) {
-    throw user;
-  }
-  
-  alert(`Полное имя: ${user.name}.`);
-  return user;
-}
-
-demoGithubUser();
+getData().then(
+  (res) => console.log(res)
+)
