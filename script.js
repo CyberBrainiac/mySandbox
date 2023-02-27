@@ -16,8 +16,13 @@
 
 
 async function getData() {
-  const response = await fetch('https://coinmarketcap.com/api/');
-  const data = await response.json();
+  try {
+    const response = await fetch('https://coinmarketcap.com/api/');
+    const data = await response.json();
+  } catch (error) {
+    console.log("Error:");
+    console.log(error);
+  }
   return data;
 }
 
