@@ -15,17 +15,28 @@
 //   });
 
 
-async function getData() {
-  try {
-    const response = await fetch('https://coinmarketcap.com/api/');
-    const data = await response.json();
-  } catch (error) {
-    console.log("Error:");
-    console.log(error);
-  }
-  return data;
+// async function getData() {
+//   try {
+//     const response = await fetch('https://coinmarketcap.com/api/');
+//     const data = await response.json();
+//   } catch (error) {
+//     console.log("Error:");
+//     console.log(error);
+//   }
+//   return data;
+// }
+
+// getData().then(
+//   (res) => console.log(res)
+// )
+
+
+alert("hello!");
+
+console.log(React);
+
+const Button = () => {
+  return <button>Click me!</button>
 }
 
-getData().then(
-  (res) => console.log(res)
-)
+ReactDOM.render(<Button />, document.getElementById('root'));
