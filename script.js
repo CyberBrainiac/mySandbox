@@ -39,4 +39,8 @@ const Button = () => {
   return <button>Click me!</button>
 }
 
+
+import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js'
+console.log(toUpperCase("small text"));
+
 ReactDOM.render(<Button />, document.getElementById('root'));
