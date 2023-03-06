@@ -6,8 +6,10 @@
 function Button (props) {
   // Возвращает DOM элемент. Например:
   return (
-    <button type="submit">{props.label}</button>
-    <div>My div</div>
+    <div class='mainDiv'>
+      <button type="submit">{props.label}</button>
+      <div>My div</div>
+    </div>
 );
 }
 // Отрисовываем компонент Button в браузере
