@@ -5,10 +5,14 @@
 
 function Button (props) {
   // Возвращает DOM элемент. Например:
-  return <button type="submit">{props.label}</button>;
+  return (
+    <button type="submit">{props.label}</button>
+    <div>My div</div>
+);
 }
 // Отрисовываем компонент Button в браузере
 ReactDOM.render(<Button label="Save" />, document.getElementById('root'))
 // root.render(<Button label="Save" />);
 
 // ReactDOM.render(<Button />, document.getElementById('root'));
+
