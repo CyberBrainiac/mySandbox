@@ -20,6 +20,13 @@
   // chai предоставляет большое количество функций. Объявим assert глобально
   // let assert = chai.assert;
   </script>
+  
+   <script type="module">
+    import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js';
+
+    const result = toUpperCase('hello world');
+    console.log('Imported module result: ' + result);
+  </script>
 </head>
 
 
@@ -45,13 +52,6 @@
     <div id="root"></div>
 
   </main>
-
-  <script type="module">
-    import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js';
-
-    const result = toUpperCase('hello world');
-    console.log(result); // logs "HELLO WORLD"
-  </script>
 
   <!-- <script>                                           !!!ЗАГРУЗИТЬ SINON!!!
   function loadScript(src, callback) {
