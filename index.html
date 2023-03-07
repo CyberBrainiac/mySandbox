@@ -46,7 +46,12 @@
 
   </main>
 
+  <script type="module">
+    import { toUpperCase } from 'https://flavio-es-modules-example.glitch.me/uppercase.js';
 
+    const result = toUpperCase('hello world');
+    console.log(result); // logs "HELLO WORLD"
+  </script>
 
   <!-- <script>                                           !!!ЗАГРУЗИТЬ SINON!!!
   function loadScript(src, callback) {
