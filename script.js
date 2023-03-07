@@ -30,8 +30,8 @@ function Button (props) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Button label="Save" />, document.getElementById('root')
+    <Button label="Save" />
     <ES6UlClass />
-  </React.StrictMode>
+  </React.StrictMode>, document.getElementById('root')
 )
 
