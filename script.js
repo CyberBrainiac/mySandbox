@@ -1,20 +1,37 @@
 "use strict";
 ////////////////////////////////////////////////////////////////////////SANDBOX/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
+class ES6UlClass extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    return (
+      <div>
+        <ul>
+          <li>Now this is</li>
+          <li>Playground</li>
+          <li>for Me and React</li>
+        </ul>
+      </div>
+    );
+  }
+}
 
 function Button (props) {
-  // Возвращает DOM элемент. Например:
   return (
     <div class='mainDiv'>
       <button type="submit">{props.label}</button>
       <div>My div</div>
     </div>
-);
+  );
 }
-// Отрисовываем компонент Button в браузере
-ReactDOM.render(<Button label="Save" />, document.getElementById('root'))
-// root.render(<Button label="Save" />);
 
-// ReactDOM.render(<Button />, document.getElementById('root'));
+ReactDOM.render(
+  <React.StrictMode>
+    <Button label="Save" />, document.getElementById('root')
+    <ES6UlClass />
+  </React.StrictMode>
+)
 
