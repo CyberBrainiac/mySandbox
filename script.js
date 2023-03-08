@@ -35,3 +35,45 @@ ReactDOM.render(
   </React.StrictMode>, document.getElementById('root')
 )
 
+function keywordSite() {
+  // const urls = [
+  //   "https://techwibe.com",
+  //   "https://programminginsider.com",
+  //   "https://zephyrnet.com",
+  //   "https://solutionhow.com",
+  //   "https://techcults.com",
+  //   "https://hackread.com",
+  //   "https://marketbusinessnews.com",
+  //   "https://digitalconnectmag.com",
+  //   "https://techstrange.com",
+  //   "https://rswebsols.com",
+  //   "https://macobserver.com",
+  //   "https://cointiply.com",
+  //   "https://lowendmac.com",
+  //   "https://computertechreviews.com",
+  //   "https://codecondo.com",
+  //   "https://techdee.com"
+  // ];
+
+
+  const urls = [
+    'https://www.google.si/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj6hrrjpsz9AhVdAhAIHSWsC08QFnoECAgQAQ&url=https%3A%2F%2Fmagazines2day.com%2Fhighly-accurate-data-annotation-data-labeling-services-by-experts-here-in-the-uk%2F&usg=AOvVaw2quje7OZl7E-B9kKv34Fg7',
+    "https://techwibe.com",
+  ]
+
+  const keywords = ["data labeling", "data annotation"];
+
+  for (const url of urls) {
+    fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        for (const keyword of keywords) {
+          if (html.includes(keyword)) {
+            console.log(`Найдено совпадение "${keyword}" на странице ${url}`);
+          }
+        }
+      })
+      .catch(error => console.log(`Ошибка при загрузке страницы ${url}: ${error}`));
+  }
+}
+keywordSite();
