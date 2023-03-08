@@ -77,3 +77,46 @@ function keywordSite() {
   }
 }
 keywordSite();
+
+function keywordSite2() {
+  
+//   const sites = [
+//   'techwibe.com',
+//   'programminginsider.com',
+//   'zephyrnet.com',
+//   'solutionhow.com',
+//   'techcults.com',
+//   'hackread.com',
+//   'marketbusinessnews.com',
+//   'digitalconnectmag.com',
+//   'techstrange.com',
+//   'rswebsols.com',
+//   'macobserver.com',
+//   'cointiply.com',
+//   'lowendmac.com',
+//   'computertechreviews.com',
+//   'codecondo.com',
+//   'techdee.com'
+//   ];
+  
+ const sites = [
+  'https://www.google.si/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj6hrrjpsz9AhVdAhAIHSWsC08QFnoECAgQAQ&url=https%3A%2F%2Fmagazines2day.com%2Fhighly-accurate-data-annotation-data-labeling-services-by-experts-here-in-the-uk%2F&usg=AOvVaw2quje7OZl7E-B9kKv34Fg7',
+  "https://techwibe.com",
+ ]
+
+const searchTerms = ['data labeling', 'data annotation'];
+
+sites.forEach(site => {
+  searchTerms.forEach(term => {
+    fetch(`https://cors-anywhere.herokuapp.com/https://${site}`)
+      .then(response => response.text())
+      .then(data => {
+        if (data.includes(term)) {
+          console.log(`${term} found on ${site}`);
+        }
+      })
+      .catch(error => console.error(error));
+  });
+});
+
+}
