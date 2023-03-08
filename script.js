@@ -35,6 +35,8 @@ ReactDOM.render(
   </React.StrictMode>, document.getElementById('root')
 )
 
+keywordSite2();
+
 function keywordSite() {
   // const urls = [
   //   "https://techwibe.com",
@@ -76,7 +78,7 @@ function keywordSite() {
       .catch(error => console.log(`Ошибка при загрузке страницы ${url}: ${error}`));
   }
 }
-keywordSite();
+
 
 function keywordSite2() {
   
